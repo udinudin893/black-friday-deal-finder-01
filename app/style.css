@@ -1,0 +1,338 @@
+/* DealTruth — Black Friday deal finder. Original design: midnight navy,
+   gold accents, white cards. No external fonts or images; system stack only. */
+
+:root {
+  --navy: #0d1526;
+  --navy-2: #131e35;
+  --gold: #f5b301;
+  --gold-soft: #ffd34d;
+  --ink: #101828;
+  --muted: #5b6472;
+  --paper: #f4f1ea;
+  --card: #ffffff;
+  --line: #e3ddd0;
+  --green: #0b7a3d;
+  --green-bg: #dff3e6;
+  --teal: #0b6e6e;
+  --teal-bg: #d9f0f0;
+  --amber: #8a5a00;
+  --amber-bg: #ffefc2;
+  --red: #a11d1d;
+  --red-bg: #fbe3e3;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.45;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 70%, #1d2c4d 100%);
+  color: #f8f5ee;
+  padding: 26px 20px 20px;
+  border-bottom: 5px solid var(--gold);
+}
+
+.hero-inner { max-width: 1080px; margin: 0 auto; }
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--gold-soft);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  margin: 0 0 4px;
+  font-size: 46px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.hero h1 .gold { color: var(--gold); }
+
+.tagline {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #e8e2d2;
+}
+
+.intro { max-width: 760px; margin: 0 0 14px; color: #c9cfdb; font-size: 14px; }
+.intro strong { color: #fff; }
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 14px;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  padding: 10px 18px;
+  min-width: 130px;
+}
+
+.stat strong { display: block; font-size: 26px; color: var(--gold-soft); line-height: 1.1; }
+.stat span { font-size: 12px; color: #c9cfdb; text-transform: uppercase; letter-spacing: 1px; }
+
+.checked-line { margin: 0; font-size: 13px; color: #9aa5b8; }
+
+/* ---------- Controls ---------- */
+main { max-width: 1080px; margin: 0 auto; padding: 0 20px 40px; }
+
+.controls {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-top: -0px;
+  position: relative;
+  top: -18px;
+  box-shadow: 0 8px 24px rgba(13, 21, 38, 0.12);
+}
+
+.search-wrap input {
+  width: 100%;
+  font-size: 17px;
+  padding: 12px 14px;
+  border: 2px solid #c9c2b2;
+  border-radius: 10px;
+  background: #fffdf8;
+}
+
+.search-wrap input:focus { outline: 3px solid var(--gold); border-color: var(--gold); }
+
+.select-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+  align-items: end;
+}
+
+.select-row label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.select-row select {
+  font-size: 15px;
+  padding: 8px 10px;
+  border: 1.5px solid #c9c2b2;
+  border-radius: 8px;
+  background: #fff;
+  min-width: 150px;
+}
+
+#clear {
+  font-size: 14px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  border: 1.5px solid var(--red);
+  background: #fff;
+  color: var(--red);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.chip {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1.5px solid #c9c2b2;
+  background: #fff;
+  cursor: pointer;
+}
+
+.chip.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+.count { margin: 12px 0 0; font-size: 14px; color: var(--muted); font-weight: 600; }
+
+/* ---------- Legend ---------- */
+.legend {
+  background: #fff8df;
+  border: 1px solid #ecd27a;
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-top: 20px;
+}
+
+.legend h2 { margin: 0 0 8px; font-size: 16px; }
+.legend ul { margin: 0 0 8px; padding-left: 18px; font-size: 14px; }
+.legend li { margin-bottom: 4px; }
+.legend p { margin: 0; font-size: 13px; color: var(--muted); }
+
+/* ---------- Deal cards ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(13, 21, 38, 0.06);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.store {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: #e8ecf5;
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+
+.cat {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.name { margin: 0 0 10px; font-size: 17px; line-height: 1.3; }
+
+.prices { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+
+.sale { font-size: 30px; font-weight: 800; color: var(--navy); line-height: 1; }
+
+.usual { font-size: 16px; color: var(--muted); }
+
+.off {
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+  background: #c22424;
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+.saved { margin: 6px 0 10px; font-size: 14px; font-weight: 700; color: var(--green); }
+
+.verdict-row { margin-bottom: 8px; }
+
+.verdict {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  padding: 4px 9px;
+}
+
+.verdict-new-low { background: var(--green-bg); color: var(--green); border: 1px solid #9ed6b4; }
+.verdict-strong { background: var(--teal-bg); color: var(--teal); border: 1px solid #9fd4d4; }
+.verdict-routine { background: var(--amber-bg); color: var(--amber); border: 1px solid #e8cd8a; }
+.verdict-inflated { background: var(--red-bg); color: var(--red); border: 1px solid #f0b6b6; }
+
+.evidence { margin: 0 0 8px; font-size: 14px; color: #333d4d; }
+.note { margin: 0 0 8px; font-size: 13px; color: var(--muted); font-style: italic; }
+.checked { margin: 0 0 12px; font-size: 12.5px; color: var(--muted); }
+.checked a { color: var(--teal); }
+
+.buy {
+  margin-top: auto;
+  display: block;
+  text-align: center;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 9px;
+  padding: 11px 10px;
+}
+
+.buy:hover { background: var(--gold-soft); }
+
+.empty {
+  grid-column: 1 / -1;
+  background: #fff;
+  border: 1px dashed #c9c2b2;
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: center;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px 44px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+footer h2 { color: var(--ink); font-size: 18px; margin-bottom: 6px; }
+footer p { max-width: 760px; }
+footer .fine { font-size: 12.5px; }
+
+/* ---------- Phone ---------- */
+@media (max-width: 640px) {
+  .hero { padding: 20px 16px 16px; }
+  .hero h1 { font-size: 40px; }
+  .tagline { font-size: 16px; }
+  .intro { display: none; }
+  .stats { display: none; }
+  .checked-line { font-size: 12px; }
+  main { padding: 0 12px 32px; }
+  .stat { min-width: calc(50% - 6px); padding: 8px 12px; }
+  .stat strong { font-size: 22px; }
+  .controls { padding: 12px; }
+  .chips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+  .chip { flex-shrink: 0; }
+  .select-row { gap: 8px; margin-top: 8px; }
+  .search-wrap input { padding: 10px 12px; }
+  .select-row select { min-width: 0; }
+  .grid { grid-template-columns: 1fr; }
+  .sale { font-size: 28px; }
+}
