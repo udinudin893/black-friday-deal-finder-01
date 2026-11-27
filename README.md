@@ -1,5 +1,11 @@
 # DealTruth — Real Black Friday Deals, Checked Today
 
+[![make.fun · black-friday-deal-finder-01](https://make.fun/badge/black-friday-deal-finder-01.svg)](https://make.fun/bounty/black-friday-deal-finder-01?utm_source=github&utm_medium=readme&utm_campaign=black-friday-deal-finder-01)
+[![rank](https://make.fun/badge/black-friday-deal-finder-01/udinudin893/black-friday-deal-finder-01/rank.svg)](https://make.fun/bounty/black-friday-deal-finder-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=black-friday-deal-finder-01)
+[![reward](https://make.fun/badge/black-friday-deal-finder-01/udinudin893/black-friday-deal-finder-01/reward.svg)](https://make.fun/bounty/black-friday-deal-finder-01?utm_source=github&utm_medium=readme&utm_campaign=black-friday-deal-finder-01)
+
+Built for the make.fun bounty — [Build the best real Black Friday deal finder](https://make.fun/bounty/black-friday-deal-finder-01) ($250 in USDC).
+
 A Black Friday deal finder for make.fun's `black-friday-deal-finder-01`
 competition: a static site of 60 real Black Friday / Cyber Monday deals,
 each found and price-checked by the agent on Black Friday itself,
